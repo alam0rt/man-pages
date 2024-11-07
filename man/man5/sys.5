@@ -202,28 +202,36 @@ In each of the subdirectories, there may be following files:
 .RS
 .TP
 .I coresize
-[to be documented]
+The size of module in bytes.
 .TP
 .I initsize
-[to be documented]
+The size of module in bytes while initializing.
 .TP
 .I initstate
-[to be documented]
+The state of the module (live, coming or going).
 .TP
 .I refcnt
-[to be documented]
+If the module is able to be unloaded from the kernel, this file
+will contain the current reference count of the module.
+
+(If the module is built into the kernel, or if the
+CONFIG_MODULE_UNLOAD kernel configuration value is not enabled,
+this file will not be present.)
 .TP
 .I srcversion
-[to be documented]
+If the module source has MODULE_VERSION, this file will contain
+the checksum of the source code.
 .TP
 .I taint
-[to be documented]
+The taint flags of the module. For more information, see
+.IR Documentation/admin\-guide/tainted-kernels.rst .
 .TP
 .I uevent
 [to be documented]
 .TP
 .I version
-[to be documented]
+If the module source has MODULE_VERSION, this file will contain
+the version of the source code.
 .RE
 .IP
 In each of the subdirectories, there may be following subdirectories:
@@ -244,21 +252,19 @@ This directory contains files containing build information for the module.
 .I parameters
 This directory contains one file for each module parameter,
 with each file containing the value of the corresponding parameter.
-Some of these files are writable, allowing the driver parameters to be changed.
+Some of these files are writable, allowing the driver parameters to be changed
+at runtime.
 .TP
 .I sections
 This subdirectories contains files with information about module sections.
 This information is mainly used for debugging.
-.TP
-.I
-[To be documented]
 .RE
 .TP
 .I /sys/power
 This directory contains files that provide a unified interface
 to the power management subsystem.
 For information about the files in this directory, see
-.IR Documentation/ABI/testing/sysfs-power .
+.IR Documentation/ABI/testing/sysfs\-power .
 .SH STANDARDS
 Linux.
 .SH HISTORY
