@@ -230,13 +230,16 @@ In each of the subdirectories, there may be following subdirectories:
 .RS
 .TP
 .I drivers
-[To be documented]
+This directory contains symbolic links named in the form
+.IR bus_type : driver_name
+and are linked to the corresponding driver in
+.IR /sys/bus .
 .TP
 .I holders
-[To be documented]
+This directory contains symbolic links to the modules that are using this module.
 .TP
 .I notes
-[To be documented]
+This directory contains files containing build information for the module.
 .TP
 .I parameters
 This directory contains one file for each module parameter,
